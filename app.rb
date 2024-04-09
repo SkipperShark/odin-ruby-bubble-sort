@@ -11,8 +11,9 @@
 # second iteration
   # from 0 to last - 1, go through and swap elements
 # run checking algorith again
-# if the checking iteration says no more iterations are needeed, exit/return 
+# if the checking iteration says no more iterations are needeed, exit/return
 # rinse and repeat
+
 def swap(numbers, index_to_swap_until, debug_mode = false)
 
   numbers.each_with_index do |number, i|
@@ -44,11 +45,11 @@ def bubble_sort(numbers, debug_mode = false)
     index_to_swap_until = numbers.length - 1 - i
 
     puts "\nnumbers (before swap) : #{numbers}" if debug_mode == true
-    
+
     swap(numbers, index_to_swap_until, false)
 
     puts "numbers (after swap) : #{numbers}" if debug_mode == true
-    
+
     #run checking algorithm
     rerun_required = false
     index_to_check_until = numbers.length - 1
@@ -56,10 +57,10 @@ def bubble_sort(numbers, debug_mode = false)
     (0..index_to_check_until).each_with_index do |i|
       next if i == index_to_check_until
       puts "number[i] : #{numbers[i]}, numbers[i+1] : #{numbers[i+1]}" if debug_mode == true
-      if numbers[i+1] < numbers[i] 
+      if numbers[i+1] < numbers[i]
         rerun_required = true
         break
-     end
+      end
     end
 
     puts "rerun required : #{rerun_required} \n ---------------------\n" if debug_mode == true
@@ -69,7 +70,7 @@ def bubble_sort(numbers, debug_mode = false)
       return numbers
     end
   end
-  
+
 end
 
 bubble_sort([4,3,78,2,0,2]) # expected => [0,2,2,3,4,78]
